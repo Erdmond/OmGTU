@@ -9,7 +9,7 @@ def Day_In_Month(x, y):
         return 28
 
 
-f = open('OLYMP/Интенсификация производства/input_s1_01.txt')
+f = open(f'OLYMP/Интенсификация производства/input_s1_01.txt')
 s = [str(i) for i in f]
 
 Date_1 = s[0].split('.')
@@ -25,7 +25,7 @@ Y2 = int(Date_2[2])
 Product_Now = int(s[2])
 
 Days1 = 0
-for x in range(0, Y2 + 1):
+for x in range(0, Y2):
     if x % 4 == 0:
         Days1 += 366
     else:
@@ -35,7 +35,7 @@ for x in range(1, M2):
 Days1 += D2
 
 Days2 = 0
-for x in range(0, Y1 + 1):
+for x in range(0, Y1):
     if x % 4 == 0:
         Days2 += 366
     else:
@@ -47,13 +47,4 @@ Days = Days1 - Days2 + 1
 
 Product = ((2 * Product_Now + (Days - 1)) / 2) * Days
 
-f = open('OLYMP/Интенсификация производства/output_s1_01.txt')
-s = [int(i) for i in f]
-
-if Product == s[0]:
-    print('Верно')
-else:
-    print('Неверно, должно быть ' + str(s[0]) + ', а у меня ' + str(Product))
-
-# Не работают тесты: 5, 3;
-# Остальные работают.
+print(Product)
