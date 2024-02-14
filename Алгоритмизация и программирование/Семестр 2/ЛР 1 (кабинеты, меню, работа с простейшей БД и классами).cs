@@ -179,7 +179,7 @@ namespace OmGTU
             int w = int.Parse(Console.ReadLine());
             foreach (Classes i in x)
             {
-                if (i.Count == w)
+                if (i.Count >= w)
                 {
                     i.Info(i);
                 }
@@ -188,10 +188,13 @@ namespace OmGTU
         public void Selection_By_Proj(List<Classes> x, Classes r)
         {
             Console.Write("Наличие проектора (1 - есть, 0 - нет): ");
-            bool o = Convert.ToBoolean(Console.ReadLine());
+            string o = Convert.ToString(Console.ReadLine());
+            bool re = false;
+            if (o == "1") { re = true; }
+            if (o == "0") { re = false; }
             foreach (Classes i in x)
             {
-                if (o)
+                if (re)
                 {
                     i.Info(i);
                 }
@@ -200,12 +203,16 @@ namespace OmGTU
         public void Selection_By_Pc_Count(List<Classes> x, Classes r)
         {
             Console.Write("Наличие ПК (1 - есть, 0 - нет): ");
-            bool o = Convert.ToBoolean(Console.ReadLine());
-            Console.Write("Кол-во посадочных мест: ");
+            string o = Convert.ToString(Console.ReadLine());
+            bool re = false;
+            if (o == "1") { re = true; }
+            if (o == "0") { re = false; }
+            foreach (Classes i in x)
+                Console.Write("Кол-во посадочных мест: ");
             int v = int.Parse(Console.ReadLine());
             foreach (Classes i in x)
             {
-                if (o & i.Count == v)
+                if (re & i.Count >= v)
                 {
                     i.Info(i);
                 }
