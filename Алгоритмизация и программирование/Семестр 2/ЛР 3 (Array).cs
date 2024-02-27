@@ -17,6 +17,8 @@ using System.Security.Cryptography;
 using OmGTU;
 using System.Diagnostics;
 using System.Collections;
+using System.Collections.ObjectModel;
+
 namespace OmGTU
 {
     public class Menu
@@ -46,10 +48,9 @@ namespace OmGTU
     {
         public static void Main()
         {
-            void WriteArray(int[] a) { foreach (var t in a) { Console.WriteLine(t); } }
-            int[] Collection = new int[2];
-            Collection[0] = 1;
-            Collection[0] = 2;
+            void WriteArray(Array a) { for (int p = 0; p < a.Length; p++) { Console.WriteLine(a.GetValue(p)); } }
+            Array Collection = Array.CreateInstance(typeof(Int32), 1);
+            Collection.SetValue(2, 0);
             int i = 0;
             while (true)
             {
@@ -59,31 +60,37 @@ namespace OmGTU
                         Console.Write("Введите количество элементов, которое необходимо внести в массив: ");
                         i = int.Parse(Console.ReadLine());
                         Collection = new int[i];
-                        for (int j = 0; j < i; j++) { Collection[i] = int.Parse(Console.ReadLine()); }
+                        for (int j = 0; j < i; j++) { Collection.SetValue(int.Parse(Console.ReadLine()), i); }
                         WriteArray(Collection);
                         break;
                     case 2:
                         Console.Write("Введите больше какого числа должен быть найденный элемент: ");
                         i = int.Parse(Console.ReadLine());
-                        Console.WriteLine(Array.Find(Collection, x => x > i));
+                        int[] Collect = new int[Collection.Length];
+                        Collection.CopyTo(Collect, 0);
+                        Console.WriteLine(Array.Find(Collect, x => x == i));
                         break;
                     case 3:
                         Console.Write("Введите номер элемента который необходимо заменить: ");
                         i = int.Parse(Console.ReadLine());
                         Console.WriteLine("Введите новый элемент: ");
-                        Collection[i] = int.Parse(Console.ReadLine());
+                        Collection.SetValue(int.Parse(Console.ReadLine()), i); ;
                         WriteArray(Collection);
                         break;
                     case 4:
                         Console.Write("Введите кол-во элементов которые необходимо урезать: ");
                         i = int.Parse(Console.ReadLine());
-                        Array.Resize(ref Collection, Collection.Length - i);
+                        int[] res = new int[Collection.Length - i];
+                        Collection.CopyTo(res, 0);
+                        Collection = res;
                         WriteArray(Collection);
                         break;
                     case 5:
                         Console.Write("Введите элемент кол-во которого необходимо посчитать: ");
                         i = int.Parse(Console.ReadLine());
-                        Console.WriteLine($"Количество элементов {i} в массиве: {Collection.Count(x => x == i)}");
+                        Collect = new int[Collection.Length];
+                        Collection.CopyTo(Collect, 0);
+                        Console.WriteLine($"Количество элементов {i} в массиве: {Array.FindAll(Collect, x => x == i).Length}");
                         break;
                     case 6:
                         Array.Sort(Collection);
@@ -106,10 +113,12 @@ namespace OmGTU
                     case 9:
                         Console.Write("Введите больше какого числа должен быть найденный элемент: ");
                         i = int.Parse(Console.ReadLine());
-                        Console.WriteLine(Array.FindLast(Collection, x => x > i));
+                        Collect = new int[Collection.Length];
+                        Collection.CopyTo(Collect, 0);
+                        Console.WriteLine(Array.FindLast(Collect, x => x > i));
                         break;
                     case 10:
-                        Collection.Reverse();
+                        Array.Reverse(Collection);
                         WriteArray(Collection);
                         break;
                     case 11:
@@ -127,6 +136,3 @@ namespace OmGTU
         }
     }
 }
-/*
-SortedList:  Add, IndexOf и по ключу и по значению, Вывод ключа по индексу, Вывод значения по индексу
-*/
