@@ -1,10 +1,36 @@
 def floyd(graph):
-    vertices_count = len(graph)
-    for k in range(vertices_count):
-        for i in range(vertices_count):
-            for j in range(vertices_count):
+    for i in range(points):
+        for j in range(points):
+            graph[i][j] = float('inf') if graph[i][j] == 0 else graph[i][j]
+            if i == j:
+                graph[i][j] = 0
+    for k in range(points):
+        for i in range(points):
+            for j in range(points):
                 graph[i][j] = min(graph[i][j], graph[i][k] + graph[k][j])
     return graph
+
+def print_matrix(mat):
+    for row in mat:
+        for element in row:
+            print(element, end="\t")
+        print()
+
+def short_way(start, end, graph):
+    now = end - 1
+    way = [str(end)]
+    while now + 1 != start:
+        min_point = ''
+        min_ves = float('inf')
+        for i in range(points):
+            if graph[i][now] != 0 and graph[i][now] < min_ves:
+                min_ves = graph[i][now]
+                min_point = i
+        way.append(str(min_point+1))
+        now = min_point
+    way.reverse()
+    print(' -> '.join(way))
+    return
 
 # Пример использования
 points = int(input("Введите количество вершин графа: "))
@@ -12,26 +38,10 @@ print("Вводите весовую матрицу построчно чере�
 graph = []
 for i in range(points):
     graph.append(list(map(int, input().split())))
-for i in range(points):
-    for j in range(points):
-        graph[i][j] = float('inf') if graph [i][j] == 0 else graph[i][j]
-        if i == j:
-            graph[i][j] = 0
+print_matrix(graph)
 print("Матрица кратчайших путей:")
-print(floyd(graph))
-
-# 0 10 18 8 0 0
-# 10 0 16 9 21 0
-# 0 16 0 0 0 15
-# 7 9 0 0 0 12
-# 0 0 0 0 0 23
-# 0 0 15 0 23 0
-
-# Ответ:
-# Матрица кратчайших путей:
-# [0, 10, 18, 8, 31, 20]
-# [10, 0, 16, 9, 21, 21]
-# [26, 16, 0, 25, 37, 15]
-# [7, 9, 25, 0, 30, 12]
-# [64, 54, 38, 63, 0, 23]
-# [41, 31, 15, 40, 23, 0]
+graph_short = floyd(graph)
+print_matrix(graph_short)
+start = int(input("Введите точку от которой нужно найти путь: "))
+end = int(input("Введите точку до которой нужно найти путь: "))
+short_way(start, end, graph_short)
