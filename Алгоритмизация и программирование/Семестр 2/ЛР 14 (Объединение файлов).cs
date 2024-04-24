@@ -22,24 +22,43 @@ namespace OmGTU
 {
     internal class Program
     {
-        public static void Main()
+        static void Main()
         {
-            StreamReader reader1 = new StreamReader("file1.txt");
-            StreamReader reader2 = new StreamReader("file2.txt");
-            StreamWriter writer = new StreamWriter("merged_file.txt");
-            string line1 = reader1.ReadLine();
-            string line2 = reader2.ReadLine();
-            while (line1 != null || line2 != null)
+            StreamReader reader1 = null;
+            StreamReader reader2 = null;
+            StreamWriter writer = null;
+            try
             {
-                if (line1 == null || (line2 != null && string.Compare(line1, line2) > 0))
+                reader1 = new StreamReader("file1.txt");
+                reader2 = new StreamReader("file2.txt");
+                writer = new StreamWriter("output.txt");
+                string line1 = reader1.ReadLine();
+                string line2 = reader2.ReadLine();
+
+                while (line1 != null || line2 != null)
                 {
-                    writer.WriteLine(line2);
-                    line2 = reader2.ReadLine();
+                    int num1 = line1 != null ? int.Parse(line1) : int.MaxValue;
+                    int num2 = line2 != null ? int.Parse(line2) : int.MaxValue;
+                    if (num1 <= num2)
+                    {
+                        writer.WriteLine(num1);
+                        line1 = reader1.ReadLine();
+                    }
+                    else
+                    {
+                        writer.WriteLine(num2);
+                        line2 = reader2.ReadLine();
+                    }
                 }
-                else
+            }
+            finally
+            {
+                if (reader1 != null) reader1.Close();
+                if (reader2 != null) reader2.Close();
+                if (writer != null)
                 {
-                    writer.WriteLine(line1);
-                    line1 = reader1.ReadLine();
+                    writer.Flush();
+                    writer.Close();
                 }
             }
         }

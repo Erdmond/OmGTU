@@ -33,8 +33,9 @@ namespace OmGTU
                 foreach (char c in l)
                 {
                     if (c == 'a') { cnt_a++; }
-                    else { if (cnt_a < min_cnt_a) { line = l; min_cnt_a = cnt_a; } }
+                    else { if (cnt_a < min_cnt_a && cnt_a != 0) { line = l; min_cnt_a = cnt_a; cnt_a = 0; } }
                 }
+                if (cnt_a < min_cnt_a && cnt_a != 0) { line = l; min_cnt_a = cnt_a; cnt_a = 0; }
             }
             Console.WriteLine(line);
         }
