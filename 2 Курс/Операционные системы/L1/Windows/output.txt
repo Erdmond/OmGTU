@@ -1,0 +1,2 @@
+Input text:text from fileInput handle - 80, output handle - 84
+
