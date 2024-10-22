@@ -63,7 +63,7 @@ comb_df.iloc[0], comb_df.iloc[1] = comb_df.iloc[1], comb_df.iloc[0]
 print(comb_df)
 input()
 
-comb_df.to_csv('D:/GitHub/OmGTU/2 Курс/Практикум по программированию/Семестр 3/combined_passengers.csv')
+comb_df.to_csv('D:/GitHub/OmGTU/2 Курс/Практикум по программированию/Семестр 3/combined_passengers.csv', sep=";")
 input()
 
 top_10_paid = comb_df.nlargest(10, 'fare')
