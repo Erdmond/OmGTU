@@ -25,7 +25,12 @@ class CountingBloomFilter:
                 self.bit_array[pos] -= 1
 
     def __contains__(self, item):
-        return all(self.bit_array[pos] for pos in self._hashes(item))
+        fact = []
+        poses = self._hashes(item)
+        for pos in poses:
+            if self.bit_array[pos] != 0:
+                fact.append(pos)
+        return sum(fact) >= sum(poses)
 
     def __or__(self, other):
         if self.size != other.size or self.hash_count != other.hash_count:
