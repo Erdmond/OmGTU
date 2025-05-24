@@ -31,8 +31,8 @@ plt.ylabel('Ложноположительный срабатывание (FPR)'
 plt.title('Зависимость FPR CountMinSketch от ширины и глубины')
 plt.legend(title='Глубина')
 plt.grid()
-# plt.savefig('count_min_sketch_fpr.png')
+plt.savefig('count_min_sketch_fpr.png')
 plt.show()
 
 df = pd.DataFrame(data, columns=['Ширина', 'Глубина', 'FPR'])
-# df.to_csv('count_min_sketch_fpr_data.csv', index=False)
+df.to_csv('count_min_sketch_fpr_data.csv', index=False)

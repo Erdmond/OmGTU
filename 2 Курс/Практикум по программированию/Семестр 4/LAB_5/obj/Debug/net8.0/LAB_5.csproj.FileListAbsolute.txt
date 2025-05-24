@@ -1,0 +1,17 @@
+D:\Python\OmGTU\Practicum\LAB_5\bin\Debug\net8.0\LAB_5.exe
+D:\Python\OmGTU\Practicum\LAB_5\bin\Debug\net8.0\LAB_5.deps.json
+D:\Python\OmGTU\Practicum\LAB_5\bin\Debug\net8.0\LAB_5.runtimeconfig.json
+D:\Python\OmGTU\Practicum\LAB_5\bin\Debug\net8.0\LAB_5.dll
+D:\Python\OmGTU\Practicum\LAB_5\bin\Debug\net8.0\LAB_5.pdb
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.GeneratedMSBuildEditorConfig.editorconfig
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.AssemblyInfoInputs.cache
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.AssemblyInfo.cs
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.csproj.CoreCompileInputs.cache
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.dll
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\refint\LAB_5.dll
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.pdb
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.genruntimeconfig.cache
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\ref\LAB_5.dll
+D:\Python\OmGTU\Practicum\LAB_5\bin\Debug\net8.0\Python.Runtime.dll
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.csproj.AssemblyReference.cache
+D:\Python\OmGTU\Practicum\LAB_5\obj\Debug\net8.0\LAB_5.csproj.Up2Date

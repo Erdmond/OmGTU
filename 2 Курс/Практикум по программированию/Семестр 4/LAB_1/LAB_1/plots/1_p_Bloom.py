@@ -30,8 +30,8 @@ plt.ylabel('FPR (ложноположительные срабатывания)'
 plt.title('Зависимость ложноположительных срабатываний от размера фильтра')
 plt.legend()
 plt.grid()
-# plt.savefig('p_bloom_filter.png')
+plt.savefig('p_bloom_filter.png')
 plt.show()
 
 df = pd.DataFrame(data, columns=['size', 'number_of_hash', 'FPR'])
-# df.to_csv('p_bloom_filter.csv', index=False, sep=';')
+df.to_csv('p_bloom_filter.csv', index=False, sep=';')

@@ -12,4 +12,4 @@ def run_scripts_from_folder(folder_path):
     print("Все скрипты выполнены.")
 
 
-run_scripts_from_folder(r"D:\Python\OmGTU\LAB_1\plots")
+run_scripts_from_folder(r"Practicum/LAB_1/LAB_1/plots")
