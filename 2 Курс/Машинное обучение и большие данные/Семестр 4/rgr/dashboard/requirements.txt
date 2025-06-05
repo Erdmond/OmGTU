@@ -1,0 +1,7 @@
+streamlit
+pandas
+catboost
+tensorflow
+scikit-learn
+pathlib
+pickle
